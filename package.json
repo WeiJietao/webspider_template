@@ -1,0 +1,17 @@
+{
+  "name": "webspider_template",
+  "version": "1.0.0",
+  "description": "Just for WebSpider test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "WebSpider"
+  ],
+  "author": "WJT20",
+  "license": "ISC",
+  "devDependencies": {
+    "cheerio": "^0.22.0"
+  }
+}
