@@ -1,2 +1,5 @@
 node_modules/
+download/*.png
+download/*.jpg
+download/*.jpeg
 npm-debug.log
