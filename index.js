@@ -2,7 +2,7 @@ var http = require("http");
 var cheerio = require("cheerio");
 var fs = require("fs");
 
-var url = "http://image.baidu.com/";
+var url = "http://699pic.com/tupian/ribao.html";
 
 function getData(url, search, attr) {
     var data = "";
@@ -21,12 +21,20 @@ function getData(url, search, attr) {
 }
 
 function download(url) {
-    var pattern = /(\w+\.\w+)$/;
-    var fileName = "./download/" + pattern.exec(url)[0];
+    var pattern = /.+\.[png|jpg|jpeg]/;
+
+    if (!pattern.test(url)) {
+        return;
+    }
+
+    console.log(url);
+
+    var fileName = "./download/" + url.substr(url.lastIndexOf('/'));
     var imgData = "";
     if (url.indexOf("https") >= 0) {
         url = url.replace("https", "http");
     }
+
     fs.exists(fileName, function(result) {
         if (!result) {
             //文件不存在则进行下载
@@ -57,7 +65,7 @@ function download(url) {
 
 function start() {
     console.log("start download...");
-    getData(url, ".img_pic_wrap_layer img", "src");
+    getData(url, ".list img", "data-original");
 }
 
 start();
